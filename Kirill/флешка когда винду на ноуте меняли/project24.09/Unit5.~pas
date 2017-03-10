@@ -1,0 +1,177 @@
+unit Unit5;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, Unit2,
+  Grids, DBGrids, StdCtrls, DBCtrls;
+
+type
+  TForm5 = class(TForm)
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
+    GroupBox4: TGroupBox;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Button4: TButton;
+    Button5: TButton;
+    Label7: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    DBLookupComboBox4: TDBLookupComboBox;
+    DBLookupComboBox6: TDBLookupComboBox;
+    Edit5: TEdit;
+    Label10: TLabel;
+    DBLookupComboBox7: TDBLookupComboBox;
+    Edit8: TEdit;
+    Label11: TLabel;
+    Label12: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Edit4Change(Sender: TObject);
+    procedure Edit3Change(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure DBLookupComboBox2CloseUp(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure DBLookupComboBox3CloseUp(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form5: TForm5;
+
+implementation
+
+{$R *.DFM}
+
+procedure TForm5.Button1Click(Sender: TObject);
+begin
+  dataModule2.DataSource1.DataSet.Insert;
+         dataModule2.DataSource1.DataSet.edit;
+        DataModule2.dataSource1.DataSet.fieldByName('id_kat').AsString:=DBlookupComboBox1.Text;
+        DataModule2.dataSource1.DataSet.fieldByName('Imya').AsString:=edit2.Text;
+        DataModule2.dataSource1.DataSet.fieldByName('kolvo').AsString:=edit3.Text;
+        DataModule2.dataSource1.DataSet.fieldByName('cena').AsString:=edit4.Text;
+
+
+        DataModule2.dataSource1.DataSet.fieldByName('sym').AsInteger:=StrToINt(edit5.Text);
+        Datamodule2.DataSource1.DataSet.Post;
+        Datamodule2.DataSource1.DataSet.Refresh;
+
+        datamodule2.ADOtable1.Refresh;
+                    datamodule2.ADOTable1.active:=false;
+                    datamodule2.ADotable1.active:=true;
+                         showmessage('Товар добавлен');
+end;
+
+
+
+procedure TForm5.Button4Click(Sender: TObject);
+begin
+dataModule2.DataSource2.DataSet.Insert;
+         dataModule2.DataSource2.DataSet.edit;
+
+        DataModule2.dataSource2.DataSet.fieldByName('imya').AsString:=edit2.Text;
+
+        Datamodule2.DataSource2.DataSet.Post;
+        Datamodule2.DataSource2.DataSet.Refresh;
+
+        datamodule2.ADOtable2.Refresh;
+                    datamodule2.ADOTable2.active:=false;
+                    datamodule2.ADotable2.active:=true;
+                    showmessage('Категория добавлена!');
+
+end;
+
+procedure TForm5.Edit4Change(Sender: TObject);
+begin
+        if (edit3.Text<>'') and (edit4.Text<>'') then
+        edit5.Text:=IntToStr( strToInt(edit3.Text) * strToInt(edit4.Text) );
+end;
+
+procedure TForm5.Edit3Change(Sender: TObject);
+begin
+        if (edit3.Text<>'') and (edit4.Text<>'') then
+        edit5.Text:=IntToStr( strToInt(edit3.Text) * strToInt(edit4.Text) );
+end;
+
+procedure TForm5.Button5Click(Sender: TObject);
+begin
+        DataModule2.ADOTable4.Edit;
+        dataModule2.DataSource2.dataset.delete;
+        showmessage('Категория ydalina!')
+end;
+
+procedure TForm5.DBLookupComboBox2CloseUp(Sender: TObject);
+var idk, sql, i:string;
+begin
+        Datamodule2.Querycat.close;
+        Datamodule2.Querycat.parameters.parambyname('a').value:=DBlookupcombobox2.KeyValue;
+        Datamodule2.Querycat.open;
+        DBLookupComboBox7.ListSource:=Datamodule2.dsQuery;
+        DBLookupComboBox7.KeyField:='Id';
+        DBLookupComboBox7.ListField:='imya';
+
+end;
+
+
+procedure TForm5.Button2Click(Sender: TObject);
+begin
+      dataModule2.dsQuery.DataSet.edit;
+        DataModule2.dsQuery.DataSet.fieldByName('kolvo').AsInteger:=StrToInt(edit6.Text)+StrToInt(DataModule2.dsQuery.DataSet.fieldByName('kolvo').AsString);
+        DataModule2.dsQuery.DataSet.fieldByName('cena').AsString:=edit7.Text;
+
+
+                Datamodule2.dsQuery.DataSet.Post;
+                Datamodule2.dsQuery.DataSet.Refresh;
+
+
+                dataModule2.dsQuery.DataSet.edit;
+                edit8.Text:= inttostr(DataModule2.dsQuery.DataSet.fieldByName('kolvo').AsInteger *  DataModule2.dsQuery.DataSet.fieldByName('cena').AsInteger);
+                DataModule2.dsQuery.DataSet.fieldByName('sym').AsInteger:=StrToInt(edit8.Text);
+                Datamodule2.dsQuery.DataSet.Post;
+                Datamodule2.dsQuery.DataSet.Refresh;
+                showmessage('Все хорошо');
+end;
+
+procedure TForm5.DBLookupComboBox3CloseUp(Sender: TObject);
+begin
+  Datamodule2.Querycat.close;
+        Datamodule2.Querycat.parameters.parambyname('a').value:=DBlookupcombobox3.KeyValue;
+        Datamodule2.Querycat.open;
+        DBLookupComboBox4.ListSource:=Datamodule2.dsQuery;
+        DBLookupComboBox4.KeyField:='Id';
+        DBLookupComboBox4.ListField:='imya';
+end;
+
+procedure TForm5.Button3Click(Sender: TObject);
+begin
+        if (DBLookupComboBox3.Text<>'') then
+        begin
+                dataModule2.dsQuery.DataSet.delete;
+                showmessage('Все удаленно');
+        end;
+end;
+
+end.

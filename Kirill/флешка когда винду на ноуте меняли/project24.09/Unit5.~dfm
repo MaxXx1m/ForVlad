@@ -1,0 +1,408 @@
+object Form5: TForm5
+  Left = 394
+  Top = 208
+  Width = 811
+  Height = 398
+  Caption = 'Добавление товара'
+  Color = clFuchsia
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 8
+    Top = 104
+    Width = 257
+    Height = 257
+    Caption = 'Добавление'
+    Color = clYellow
+    ParentColor = False
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Top = 32
+      Width = 80
+      Height = 20
+      Caption = 'Категория'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 8
+      Top = 64
+      Width = 74
+      Height = 20
+      Caption = 'Название'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 8
+      Top = 128
+      Width = 39
+      Height = 20
+      Caption = 'Цена'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 8
+      Top = 96
+      Width = 91
+      Height = 20
+      Caption = 'Количество'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 8
+      Top = 160
+      Width = 58
+      Height = 24
+      Caption = 'Сумма'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Edit2: TEdit
+      Left = 104
+      Top = 64
+      Width = 121
+      Height = 21
+      Color = clAqua
+      TabOrder = 0
+    end
+    object Edit3: TEdit
+      Left = 104
+      Top = 96
+      Width = 121
+      Height = 21
+      TabOrder = 1
+      Text = '1'
+      OnChange = Edit3Change
+    end
+    object Edit4: TEdit
+      Left = 104
+      Top = 128
+      Width = 121
+      Height = 21
+      TabOrder = 2
+      Text = '0'
+      OnChange = Edit4Change
+    end
+    object Button1: TButton
+      Left = 32
+      Top = 192
+      Width = 201
+      Height = 57
+      Caption = 'Добавить'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clActiveCaption
+      Font.Height = -21
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      OnClick = Button1Click
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 104
+      Top = 24
+      Width = 145
+      Height = 21
+      Color = clPurple
+      KeyField = 'Id'
+      ListSource = DataModule2.DataSource2
+      TabOrder = 4
+    end
+    object Edit5: TEdit
+      Left = 104
+      Top = 160
+      Width = 121
+      Height = 21
+      TabOrder = 5
+      Text = '0'
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 280
+    Top = 104
+    Width = 257
+    Height = 257
+    Caption = 'Редактирование'
+    Color = clRed
+    ParentColor = False
+    TabOrder = 1
+    object Label5: TLabel
+      Left = 8
+      Top = 32
+      Width = 80
+      Height = 20
+      Caption = 'Категория'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 8
+      Top = 64
+      Width = 74
+      Height = 20
+      Caption = 'Название'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 8
+      Top = 128
+      Width = 39
+      Height = 20
+      Caption = 'Цена'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 8
+      Top = 96
+      Width = 91
+      Height = 20
+      Caption = 'Количество'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 8
+      Top = 160
+      Width = 53
+      Height = 20
+      Caption = 'Cymma'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Edit6: TEdit
+      Left = 104
+      Top = 96
+      Width = 121
+      Height = 21
+      TabOrder = 0
+    end
+    object Edit7: TEdit
+      Left = 104
+      Top = 128
+      Width = 121
+      Height = 21
+      TabOrder = 1
+    end
+    object Button2: TButton
+      Left = 32
+      Top = 192
+      Width = 201
+      Height = 57
+      Caption = 'Редактировать'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -20
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      OnClick = Button2Click
+    end
+    object DBLookupComboBox2: TDBLookupComboBox
+      Left = 104
+      Top = 32
+      Width = 145
+      Height = 21
+      Color = clPurple
+      KeyField = 'Id'
+      ListField = 'imya'
+      ListSource = DataModule2.DataSource2
+      TabOrder = 3
+      OnCloseUp = DBLookupComboBox2CloseUp
+    end
+    object DBLookupComboBox7: TDBLookupComboBox
+      Left = 104
+      Top = 64
+      Width = 145
+      Height = 21
+      Color = clAqua
+      TabOrder = 4
+    end
+    object Edit8: TEdit
+      Left = 104
+      Top = 160
+      Width = 121
+      Height = 21
+      TabOrder = 5
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 552
+    Top = 104
+    Width = 241
+    Height = 257
+    Caption = 'Удаление'
+    Color = clLime
+    ParentColor = False
+    TabOrder = 2
+    object Label9: TLabel
+      Left = 8
+      Top = 32
+      Width = 80
+      Height = 20
+      Caption = 'Категория'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 8
+      Top = 72
+      Width = 74
+      Height = 20
+      Caption = 'Название'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Button3: TButton
+      Left = 32
+      Top = 192
+      Width = 185
+      Height = 57
+      Caption = 'Удалить'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -20
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = Button3Click
+    end
+    object DBLookupComboBox3: TDBLookupComboBox
+      Left = 88
+      Top = 32
+      Width = 145
+      Height = 21
+      Color = clPurple
+      KeyField = 'Id'
+      ListField = 'imya'
+      ListSource = DataModule2.DataSource2
+      TabOrder = 1
+      OnCloseUp = DBLookupComboBox3CloseUp
+    end
+    object DBLookupComboBox4: TDBLookupComboBox
+      Left = 88
+      Top = 72
+      Width = 145
+      Height = 21
+      Color = clAqua
+      TabOrder = 2
+    end
+  end
+  object GroupBox4: TGroupBox
+    Left = 8
+    Top = 8
+    Width = 489
+    Height = 89
+    Caption = 'Категория'
+    Color = clBlue
+    ParentColor = False
+    TabOrder = 3
+    object Edit1: TEdit
+      Left = 72
+      Top = 16
+      Width = 121
+      Height = 21
+      TabOrder = 0
+    end
+    object Button4: TButton
+      Left = 72
+      Top = 48
+      Width = 121
+      Height = 33
+      Caption = 'Добавить'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      OnClick = Button4Click
+    end
+    object Button5: TButton
+      Left = 280
+      Top = 48
+      Width = 121
+      Height = 33
+      Caption = 'Удалить'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      OnClick = Button5Click
+    end
+    object DBLookupComboBox6: TDBLookupComboBox
+      Left = 272
+      Top = 16
+      Width = 145
+      Height = 21
+      KeyField = 'imya'
+      ListSource = DataModule2.DataSource2
+      TabOrder = 3
+    end
+  end
+end
